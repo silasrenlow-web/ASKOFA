@@ -1,0 +1,162 @@
+{
+  "version": 1,
+  "name": "My First Scene",
+  "settings": {
+    "background": "#101216",
+    "fog": true,
+    "gravity": 18,
+    "groundY": 0
+  },
+  "objects": [
+    {
+      "id": "obj_1",
+      "type": "plane",
+      "name": "Ground",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        10,
+        1,
+        10
+      ],
+      "color": "#3d4348",
+      "visible": true,
+      "behavior": "none",
+      "behaviorSpeed": 1,
+      "script": ""
+    },
+    {
+      "id": "obj_2",
+      "type": "cube",
+      "name": "Player",
+      "position": [
+        0,
+        1,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "color": "#4da3ff",
+      "visible": true,
+      "behavior": "player",
+      "behaviorSpeed": 1,
+      "script": ""
+    },
+    {
+      "id": "obj_3",
+      "type": "sphere",
+      "name": "Ball",
+      "position": [
+        3,
+        1,
+        -2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "color": "#ffc24d",
+      "visible": true,
+      "behavior": "bob",
+      "behaviorSpeed": 1,
+      "script": ""
+    },
+    {
+      "id": "obj_4",
+      "type": "torus",
+      "name": "Ring",
+      "position": [
+        -3,
+        2,
+        -2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "color": "#7dff8a",
+      "visible": true,
+      "behavior": "spin",
+      "behaviorSpeed": 1,
+      "script": ""
+    },
+    {
+      "id": "obj_5",
+      "type": "directionalLight",
+      "name": "Sun",
+      "position": [
+        5,
+        10,
+        5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "color": "#ffffff",
+      "visible": true,
+      "behavior": "none",
+      "behaviorSpeed": 1,
+      "script": ""
+    },
+    {
+      "id": "obj_6",
+      "type": "camera",
+      "name": "Game Camera",
+      "position": [
+        0,
+        3,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "color": "#ffffff",
+      "visible": true,
+      "behavior": "none",
+      "behaviorSpeed": 1,
+      "script": ""
+    }
+  ]
+}
