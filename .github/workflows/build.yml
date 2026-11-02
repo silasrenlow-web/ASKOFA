@@ -1,0 +1,42 @@
+name: Build ASKOFA Engine
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    name: Build (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Linux deps (GLFW / OpenGL)
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libwayland-dev libxkbcommon-dev libx11-dev \
+            libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev \
+            libgl1-mesa-dev libglu1-mesa-dev
+
+      - name: Configure
+        run: cmake -S engine-native -B build -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build
+        run: cmake --build build --config Release -j 4
+
+      - name: Test core
+        run: ctest --test-dir build -C Release --output-on-failure
+
+      - name: Upload Windows engine binary
+        if: runner.os == 'Windows'
+        uses: actions/upload-artifact@v4
+        with:
+          name: askofa-engine-windows
+          path: build/Release/askofa_engine.exe
+          if-no-files-found: warn
